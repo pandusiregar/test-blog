@@ -1,3 +1,8 @@
+- name: Copy file to a remote server
+    copy:
+     src: ansible/roles/Create_Blog/files/
+     dest: /home/centos/blog-shopee
+
 - name: install docker
   shell: bash install_docker.sh
   args: /home/centos/blog-shopee
