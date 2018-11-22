@@ -1,0 +1,3 @@
+---
+- include: Create_Blog.yml tags=blog-shopee
+

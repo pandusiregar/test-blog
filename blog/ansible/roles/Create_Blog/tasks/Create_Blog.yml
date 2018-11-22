@@ -1,0 +1,10 @@
+- name: install docker
+  shell: bash install_docker.sh
+  args: /home/centos/blog-shopee
+
+- name: Create Blog
+  shell:  docker-compose up -d --build
+  args: /home/centos/blog-shopee
+
+- debug:
+msg: "Done! The blog can be accessed at http://localhost"

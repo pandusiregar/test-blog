@@ -1,0 +1,25 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  gather_facts: false
+  vars:
+    VPC_CIDR: 172.30.0.0/16
+    VPC_REGION: ap-southeast-1
+    ec2_keypair: "blog-shopee"
+    ec2_security_group: "sg-59730d3f"
+    ec2_instance_type: "t2.small"
+    ec2_image: "ami-d2c924b2"
+    ec2_subnet_ids: ['subnet-fcb540a5','subnet-027da875']
+    ec2_region: "ap-southeast-1"
+    ec2_tag_Name: "blog-shopee"
+    ec2_tag_Type: "blog-shopee"
+    ec2_volume_size_disk1: 8
+    ec2_volume_size_disk2: 20
+  roles:
+    - create_instance
+
+- hosts: blog_instance
+  gather_facts: true
+  remote_user: centos
+  roles:
+    - Create_Blog
